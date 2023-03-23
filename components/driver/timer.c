@@ -442,6 +442,11 @@ uint64_t IRAM_ATTR timer_group_get_counter_value_in_isr(timer_group_t group_num,
     return val;
 }
 
+void IRAM_ATTR timer_group_set_counter_value_in_isr(timer_group_t group_num, timer_idx_t timer_num, uint64_t load_val)
+{
+    timer_hal_set_counter_value(&(p_timer_obj[group_num][timer_num]->hal), load_val);
+}
+
 void IRAM_ATTR timer_group_set_alarm_value_in_isr(timer_group_t group_num, timer_idx_t timer_num, uint64_t alarm_val)
 {
     timer_hal_set_alarm_value(&(p_timer_obj[group_num][timer_num]->hal), alarm_val);
@@ -480,3 +485,4 @@ esp_err_t IRAM_ATTR timer_spinlock_give(timer_group_t group_num)
     TIMER_EXIT_CRITICAL(&timer_spinlock[group_num]);
     return ESP_OK;
 }
+
