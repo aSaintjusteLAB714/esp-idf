@@ -83,7 +83,7 @@
 #define LUT_HIGH_THRESH                 (LUT_LOW_THRESH + LUT_ADC_STEP_SIZE)
 #define ADC_12_BIT_RES                  4096
 
-const static char LOG_TAG[] = "ADC_CALI";
+const __unused static char LOG_TAG[] = "ADC_CALI";
 
 /* ------------------------ Characterization Constants ---------------------- */
 static const uint32_t adc1_tp_atten_scale[4] = {65504, 86975, 120389, 224310};
